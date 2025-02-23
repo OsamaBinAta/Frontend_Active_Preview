@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <title>Active Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="stylebig.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="hero"><img src="drawers.jpg" alt=""></div>
+    <div class="subcontainer">
+      <div class="head_ing">
+        <p class="heading">Shift the overall look and feel by adding these wonderful touches to furniture in your home
+        </p>
+      </div>
+      <div class="pass_age">
+        <p class="passage"> Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and
+          uninviting. I’ve
+          got some simple tips to help you make any room feel complete.</p>
+      </div>
+      <div class="endBar">
+        <img class="user" src="avatar-michelle.jpg" alt="">
+        <div class="nameBar">
+          <p class="name">Michelle Appleton</p>
+          <p class="date">28 Jun 2020</p>
+        </div>
+        <div class="share_box">
+          <img class="share" src="icon-share.svg" alt="">
+          <div class="hidBar2">
+            <p>SHARE</p>
+            <a href="https://www.facebook.com/" target="_blank"><img class="fb" src="icon-facebook.svg" alt=""></a>
+            <a href="https://x.com/?lang=en" target="_blank"><img class="x" src="icon-twitter.svg" alt=""></a>
+            <a class="pin" href="https://pinterest.com/" target="_blank"><img src="icon-pinterest.svg" alt=""></a>
+            <!-- <div class="_share2" ><img src="icon-share.svg" alt=""></div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hidBar">
+      <p>SHARE</p>
+      <a href="https://www.facebook.com/" target="_blank"><img class="fb" src="icon-facebook.svg" alt=""></a>
+      <a href="https://x.com/?lang=en" target="_blank"><img class="x" src="icon-twitter.svg" alt=""></a>
+      <a class="pin" href="https://pinterest.com/" target="_blank"><img src="icon-pinterest.svg" alt=""></a>
+      <div class="_share"><img src="icon-share.svg" alt=""></div>
+    </div>
+  </div>
+
+  <script>
+    const share1 = document.querySelector('.share');
+    const share2 = document.querySelector('._share');
+    const hidBar = document.querySelector('.hidBar');
+    const hidBar2 = document.querySelector('.hidBar2');
+    const shareBox=document.querySelector('.share_box');
+   
+
+    let isFirstClick = true;
+
+    if (window.matchMedia("(max-width:1024px)").matches) {
+
+      share1.addEventListener('click', function () {
+        hidBar.style.opacity = '1';
+        hidBar.style.pointerEvents = 'auto';
+      }
+      )
+      share2.addEventListener('click', function () {
+        hidBar.style.opacity = '0';
+        hidBar.style.pointerEvents = 'none';
+      })
+    }
+    if (window.matchMedia("(min-width:1024px)").matches) {
+      share1.addEventListener('click', function () {
+        if (isFirstClick) {
+          hidBar2.style.opacity = '1';
+          hidBar2.style.pointerEvents = 'auto'; 
+          shareBox.style.backgroundColor='hsl(217, 16%, 49%)';
+          share1.classList.replace("share", "share2"); 
+        }
+        else {
+          hidBar2.style.opacity = '0';
+          hidBar2.style.pointerEvents = 'none'; 
+          shareBox.style.backgroundColor=''; 
+          share1.classList.replace("share2", "share"); 
+        }
+        isFirstClick = !isFirstClick;
+      }
+      )
+    }
+
+  </script>
+</body>
+
+</html>
